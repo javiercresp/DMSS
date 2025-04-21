@@ -11,5 +11,6 @@
     <genClasses ecoreClass="dataWeb.ecore#//Application"/>
     <genClasses ecoreClass="dataWeb.ecore#//Entity"/>
     <genClasses ecoreClass="dataWeb.ecore#//Reference"/>
+    <genClasses ecoreClass="dataWeb.ecore#//Atributte"/>
   </genPackages>
 </genmodel:GenModel>
