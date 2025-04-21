@@ -5,4 +5,5 @@
   <eClassifiers xsi:type="ecore:EClass" name="Entity"/>
   <eClassifiers xsi:type="ecore:EClass" name="Reference"/>
   <eClassifiers xsi:type="ecore:EClass" name="Atributte"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Page" abstract="true"/>
 </ecore:EPackage>
