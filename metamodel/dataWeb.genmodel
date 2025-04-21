@@ -10,5 +10,6 @@
   <genPackages prefix="DataWeb" disposableProviderFactory="true" ecorePackage="dataWeb.ecore#/">
     <genClasses ecoreClass="dataWeb.ecore#//Application"/>
     <genClasses ecoreClass="dataWeb.ecore#//Entity"/>
+    <genClasses ecoreClass="dataWeb.ecore#//Reference"/>
   </genPackages>
 </genmodel:GenModel>

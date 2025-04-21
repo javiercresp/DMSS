@@ -3,4 +3,5 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="dataWeb" nsURI="http://www.example.org/dataWeb" nsPrefix="dataWeb">
   <eClassifiers xsi:type="ecore:EClass" name="Application"/>
   <eClassifiers xsi:type="ecore:EClass" name="Entity"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Reference"/>
 </ecore:EPackage>
