@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/DataWeb/src-gen" creationIcons="false" editDirectory="/DataWeb.edit/src-gen"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/DataWeb/src-gen" creationIcons="false" editDirectory="/DataWeb.edit/src-gen"
     editorDirectory="/DataWeb.editor/src-gen" modelPluginID="DataWeb" modelName="DataWeb"
     rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="17.0" copyrightFields="false"
@@ -8,10 +9,117 @@
   <foreignModel>dataWeb.ecore</foreignModel>
   <testsDirectory xsi:nil="true"/>
   <genPackages prefix="DataWeb" disposableProviderFactory="true" ecorePackage="dataWeb.ecore#/">
-    <genClasses ecoreClass="dataWeb.ecore#//Application"/>
-    <genClasses ecoreClass="dataWeb.ecore#//Entity"/>
-    <genClasses ecoreClass="dataWeb.ecore#//Reference"/>
-    <genClasses ecoreClass="dataWeb.ecore#//Atributte"/>
-    <genClasses ecoreClass="dataWeb.ecore#//Page"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="dataWeb.ecore#//DataType">
+      <genEnumLiterals ecoreEnumLiteral="dataWeb.ecore#//DataType/Integer"/>
+      <genEnumLiterals ecoreEnumLiteral="dataWeb.ecore#//DataType/Boolean"/>
+      <genEnumLiterals ecoreEnumLiteral="dataWeb.ecore#//DataType/String"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="dataWeb.ecore#//PageType">
+      <genEnumLiterals ecoreEnumLiteral="dataWeb.ecore#//PageType/Create"/>
+      <genEnumLiterals ecoreEnumLiteral="dataWeb.ecore#//PageType/Index"/>
+      <genEnumLiterals ecoreEnumLiteral="dataWeb.ecore#//PageType/ExtendedIndex"/>
+      <genEnumLiterals ecoreEnumLiteral="dataWeb.ecore#//PageType/IndexDetail"/>
+      <genEnumLiterals ecoreEnumLiteral="dataWeb.ecore#//PageType/Detail"/>
+      <genEnumLiterals ecoreEnumLiteral="dataWeb.ecore#//PageType/Update"/>
+      <genEnumLiterals ecoreEnumLiteral="dataWeb.ecore#//PageType/Delete"/>
+      <genEnumLiterals ecoreEnumLiteral="dataWeb.ecore#//PageType/CRUD"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="dataWeb.ecore#//SocialType">
+      <genEnumLiterals ecoreEnumLiteral="dataWeb.ecore#//SocialType/Twitter"/>
+      <genEnumLiterals ecoreEnumLiteral="dataWeb.ecore#//SocialType/Facebook"/>
+      <genEnumLiterals ecoreEnumLiteral="dataWeb.ecore#//SocialType/RSS"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="dataWeb.ecore#//ChartType">
+      <genEnumLiterals ecoreEnumLiteral="dataWeb.ecore#//ChartType/Text"/>
+      <genEnumLiterals ecoreEnumLiteral="dataWeb.ecore#//ChartType/Bar"/>
+      <genEnumLiterals ecoreEnumLiteral="dataWeb.ecore#//ChartType/Pie"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="dataWeb.ecore#//Multiplicity">
+      <genEnumLiterals ecoreEnumLiteral="dataWeb.ecore#//Multiplicity/ZERO_ONE"/>
+      <genEnumLiterals ecoreEnumLiteral="dataWeb.ecore#//Multiplicity/ONE_ONE"/>
+      <genEnumLiterals ecoreEnumLiteral="dataWeb.ecore#//Multiplicity/ZERO_MANY"/>
+      <genEnumLiterals ecoreEnumLiteral="dataWeb.ecore#//Multiplicity/ONE_MANY"/>
+      <genEnumLiterals ecoreEnumLiteral="dataWeb.ecore#//Multiplicity/MANY_MANY"/>
+    </genEnums>
+    <genClasses ecoreClass="dataWeb.ecore#//Application">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataWeb.ecore#//Application/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dataWeb.ecore#//Application/entity"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dataWeb.ecore#//Application/page"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dataWeb.ecore#//Application/socialcontent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dataWeb.ecore#//Application/role"/>
+    </genClasses>
+    <genClasses ecoreClass="dataWeb.ecore#//Entity">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dataWeb.ecore#//Entity/attribute"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dataWeb.ecore#//Entity/reference"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dataWeb.ecore#//Entity/pageconfig"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataWeb.ecore#//Entity/name"/>
+    </genClasses>
+    <genClasses ecoreClass="dataWeb.ecore#//Reference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataWeb.ecore#//Reference/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataWeb.ecore#//Reference/multiplicity"/>
+    </genClasses>
+    <genClasses ecoreClass="dataWeb.ecore#//Attribute">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataWeb.ecore#//Attribute/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataWeb.ecore#//Attribute/type"/>
+    </genClasses>
+    <genClasses ecoreClass="dataWeb.ecore#//Page">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dataWeb.ecore#//Page/link"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataWeb.ecore#//Page/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataWeb.ecore#//Page/title"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dataWeb.ecore#//Page/socialcontent"/>
+    </genClasses>
+    <genClasses ecoreClass="dataWeb.ecore#//PageConfig">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dataWeb.ecore#//PageConfig/pagination"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataWeb.ecore#//PageConfig/pageType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dataWeb.ecore#//PageConfig/attribute"/>
+    </genClasses>
+    <genClasses ecoreClass="dataWeb.ecore#//EntityPage">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dataWeb.ecore#//EntityPage/entity"/>
+    </genClasses>
+    <genClasses ecoreClass="dataWeb.ecore#//SocialContent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataWeb.ecore#//SocialContent/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataWeb.ecore#//SocialContent/uri"/>
+    </genClasses>
+    <genClasses ecoreClass="dataWeb.ecore#//Role">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataWeb.ecore#//Role/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dataWeb.ecore#//Role/accessiblePages"/>
+    </genClasses>
+    <genClasses ecoreClass="dataWeb.ecore#//ContentPage"/>
+    <genClasses ecoreClass="dataWeb.ecore#//SurveyPage">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dataWeb.ecore#//SurveyPage/survey"/>
+    </genClasses>
+    <genClasses ecoreClass="dataWeb.ecore#//CreatePage"/>
+    <genClasses ecoreClass="dataWeb.ecore#//IndexPage"/>
+    <genClasses ecoreClass="dataWeb.ecore#//CRUDPage"/>
+    <genClasses ecoreClass="dataWeb.ecore#//ExtendedIndexPage"/>
+    <genClasses ecoreClass="dataWeb.ecore#//IndexDetailPage"/>
+    <genClasses ecoreClass="dataWeb.ecore#//DetailPage"/>
+    <genClasses ecoreClass="dataWeb.ecore#//UpdatePage"/>
+    <genClasses ecoreClass="dataWeb.ecore#//DeletePage"/>
+    <genClasses ecoreClass="dataWeb.ecore#//Link">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataWeb.ecore#//Link/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataWeb.ecore#//Link/externalURL"/>
+    </genClasses>
+    <genClasses ecoreClass="dataWeb.ecore#//Pagination">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataWeb.ecore#//Pagination/pageSize"/>
+    </genClasses>
+    <genClasses ecoreClass="dataWeb.ecore#//Survey">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dataWeb.ecore#//Survey/question"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataWeb.ecore#//Survey/representation"/>
+    </genClasses>
+    <genClasses ecoreClass="dataWeb.ecore#//Question">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataWeb.ecore#//Question/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataWeb.ecore#//Question/text"/>
+    </genClasses>
+    <genClasses ecoreClass="dataWeb.ecore#//MCQuestion">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dataWeb.ecore#//MCQuestion/option"/>
+    </genClasses>
+    <genClasses ecoreClass="dataWeb.ecore#//TrueFalseQuestion">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataWeb.ecore#//TrueFalseQuestion/correctAnswer"/>
+    </genClasses>
+    <genClasses ecoreClass="dataWeb.ecore#//ShortQuestion"/>
+    <genClasses ecoreClass="dataWeb.ecore#//AnswerOption">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataWeb.ecore#//AnswerOption/text"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>
