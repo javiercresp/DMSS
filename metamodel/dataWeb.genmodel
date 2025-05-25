@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
-    modelDirectory="/DataWeb/src-gen" creationIcons="false" editDirectory="/DataWeb.edit/src-gen"
-    editorDirectory="/DataWeb.editor/src-gen" modelPluginID="DataWeb" modelName="DataWeb"
-    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
-    importerID="org.eclipse.emf.importer.ecore" complianceLevel="17.0" copyrightFields="false"
-    operationReflection="true" importOrganizing="true">
-  <foreignModel>dataWeb.ecore</foreignModel>
-  <testsDirectory xsi:nil="true"/>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="" modelDirectory="/DataWeb/src" modelPluginID="DataWeb"
+    modelName="DataWeb" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
+    copyrightFields="false">
+  <foreignModel>dataWeb.emf</foreignModel>
   <genPackages prefix="DataWeb" disposableProviderFactory="true" ecorePackage="dataWeb.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="dataWeb.ecore#//DataType">
       <genEnumLiterals ecoreEnumLiteral="dataWeb.ecore#//DataType/Integer"/>
@@ -67,7 +63,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataWeb.ecore#//Attribute/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataWeb.ecore#//Attribute/type"/>
     </genClasses>
-    <genClasses ecoreClass="dataWeb.ecore#//Page">
+    <genClasses image="false" ecoreClass="dataWeb.ecore#//Page">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dataWeb.ecore#//Page/link"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataWeb.ecore#//Page/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataWeb.ecore#//Page/title"/>
@@ -80,7 +76,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataWeb.ecore#//PageConfig/pageType"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dataWeb.ecore#//PageConfig/attribute"/>
     </genClasses>
-    <genClasses ecoreClass="dataWeb.ecore#//EntityPage">
+    <genClasses image="false" ecoreClass="dataWeb.ecore#//EntityPage">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dataWeb.ecore#//EntityPage/entity"/>
     </genClasses>
     <genClasses ecoreClass="dataWeb.ecore#//SurveyPage">
@@ -92,10 +88,10 @@
     </genClasses>
     <genClasses ecoreClass="dataWeb.ecore#//Role">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataWeb.ecore#//Role/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataWeb.ecore#//Role/permissions"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dataWeb.ecore#//Role/accessiblePages"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataWeb.ecore#//Role/numeroEntidadesAccesibles"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataWeb.ecore#//Role/paginasMediasAccesibles"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataWeb.ecore#//Role/permissions"/>
     </genClasses>
     <genClasses ecoreClass="dataWeb.ecore#//Link">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataWeb.ecore#//Link/description"/>
@@ -110,7 +106,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataWeb.ecore#//Survey/numeroPregVF"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataWeb.ecore#//Survey/numeroPregSelect"/>
     </genClasses>
-    <genClasses ecoreClass="dataWeb.ecore#//Question">
+    <genClasses image="false" ecoreClass="dataWeb.ecore#//Question">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataWeb.ecore#//Question/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataWeb.ecore#//Question/text"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataWeb.ecore#//Question/isMandatory"/>

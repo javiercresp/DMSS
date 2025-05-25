@@ -1,7 +1,18 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: DataWeb
-Bundle-SymbolicName: DataWeb; singleton:=true
+Bundle-Name: %pluginName
+Bundle-SymbolicName: DataWeb;singleton:=true
+Automatic-Module-Name: DataWeb
 Bundle-Version: 0.1.0.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: dataWeb,
+ dataWeb.impl,
+ dataWeb.util
 Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
+ org.eclipse.ocl.pivot;visibility:=reexport,
+ org.eclipse.ocl.examples.codegen;visibility:=reexport,
  org.eclipse.core.runtime
+Bundle-ActivationPolicy: lazy

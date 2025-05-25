@@ -9,6 +9,12 @@
     <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
     <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
   </eAnnotations>
+  <eAnnotations source="gmf"/>
+  <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+    <details key="operationReflection" value="true"/>
+    <details key="tableProviders" value="true"/>
+    <details key="complianceLevel" value="6.0"/>
+  </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="Application">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="R01_UnicaIndexHome R04_SocialRSS R06b_MinSurvey"/>
@@ -18,15 +24,24 @@
       <details key="R04_SocialRSS" value="socialcontent->select(sc |&#xA;&#x9;&#x9;&#x9;&#x9;sc.type = SocialType::Twitter or sc.type = SocialType::Facebook)->size() >= 1 and socialcontent->select(sc |&#xA;&#x9;&#x9;&#x9;&#x9;sc.type = SocialType::RSS)->size() >= 1"/>
       <details key="R06b_MinSurvey" value="page->select(p | p.oclIsKindOf(SurveyPage))->size() >= 1"/>
     </eAnnotations>
+    <eAnnotations source="gmf.diagram"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="entity" upperBound="-1"
-        eType="#//Entity" containment="true"/>
+        eType="#//Entity" containment="true">
+      <eAnnotations source="gmf.compartment"/>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="page" lowerBound="1" upperBound="-1"
-        eType="#//Page" containment="true"/>
+        eType="#//Page" containment="true">
+      <eAnnotations source="gmf.compartment"/>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="socialcontent" upperBound="-1"
-        eType="#//SocialContent" containment="true"/>
+        eType="#//SocialContent" containment="true">
+      <eAnnotations source="gmf.compartment"/>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="role" upperBound="-1" eType="#//Role"
-        containment="true"/>
+        containment="true">
+      <eAnnotations source="gmf.compartment"/>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Entity">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
@@ -38,28 +53,60 @@
       <details key="R05_NoSelfReference" value="reference->forAll(ref | ref.name &lt;> name)"/>
       <details key="R08_UniqueIndexPerEntity" value="pageconfig->select(pc | pc.pageType = PageType::Index)->size() &lt;= 1"/>
     </eAnnotations>
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+      <details key="color" value="200,200,255"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" upperBound="-1"
-        eType="#//Attribute" containment="true"/>
+        eType="#//Attribute" containment="true">
+      <eAnnotations source="gmf.compartment"/>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="reference" upperBound="-1"
-        eType="#//Reference" containment="true"/>
+        eType="#//Reference" containment="true">
+      <eAnnotations source="gmf.compartment"/>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="pageconfig" upperBound="-1"
-        eType="#//PageConfig" containment="true"/>
+        eType="#//PageConfig" containment="true">
+      <eAnnotations source="gmf.compartment"/>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Reference">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+      <details key="color" value="255,230,200"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="multiplicity" eType="#//Multiplicity"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Attribute">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+      <details key="color" value="255,230,200"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//DataType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Page" abstract="true">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+      <details key="color" value="255,230,200"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="link" upperBound="-1" eType="#//Link"
-        containment="true"/>
+        containment="true">
+      <eAnnotations source="gmf.compartment"/>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="socialcontent" eType="#//SocialContent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="socialcontent" eType="#//SocialContent">
+      <eAnnotations source="gmf.link">
+        <details key="source" value="Page"/>
+        <details key="target" value="SocialContent"/>
+        <details key="target.decoration" value="arrow"/>
+        <details key="color" value="128,128,0"/>
+        <details key="width" value="1"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="metaDescription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="metaKeywords" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -70,13 +117,39 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
       <details key="R09_ValidIndexAttributes" value="attribute &lt;> null implies let parent : dataWeb::Entity =&#xA;&#x9;&#x9;&#x9;self.oclContainer().oclAsType(dataWeb::Entity)&#xA;&#x9;in parent.attribute->includes(self.attribute)"/>
     </eAnnotations>
+    <eAnnotations source="gmf.node">
+      <details key="label" value="pageType"/>
+      <details key="color" value="240,240,240"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="pagination" upperBound="-1"
-        eType="#//Pagination" containment="true"/>
+        eType="#//Pagination" containment="true">
+      <eAnnotations source="gmf.compartment"/>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pageType" eType="#//PageType"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" eType="#//Attribute"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" eType="#//Attribute">
+      <eAnnotations source="gmf.link">
+        <details key="source" value="PageConfig"/>
+        <details key="target" value="Attribute"/>
+        <details key="target.decoration" value="arrow"/>
+        <details key="color" value="128,128,128"/>
+        <details key="width" value="1"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EntityPage" abstract="true" eSuperTypes="#//Page">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="entity" eType="#//Entity"/>
+    <eAnnotations source="gmf.node">
+      <details key="label" value="title"/>
+      <details key="color" value="200,230,255"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entity" eType="#//Entity">
+      <eAnnotations source="gmf.link">
+        <details key="source" value="EntityPage"/>
+        <details key="target" value="Entity"/>
+        <details key="target.decoration" value="arrow"/>
+        <details key="color" value="0,128,0"/>
+        <details key="width" value="2"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SurveyPage" eSuperTypes="#//Page">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
@@ -85,10 +158,20 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
       <details key="R07_ResponsesDefined" value="survey.question->forAll(q |&#xA;&#x9;&#x9;&#x9;(q.oclIsKindOf(TrueFalseQuestion) implies q.oclAsType(TrueFalseQuestion).correctAnswer = true or q.oclAsType(TrueFalseQuestion).correctAnswer = false) and (q.oclIsKindOf(MCQuestion) implies q.oclAsType(MCQuestion).option->size() > 0))"/>
     </eAnnotations>
+    <eAnnotations source="gmf.node">
+      <details key="label" value="title"/>
+      <details key="color" value="200,200,255"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="survey" lowerBound="1"
-        upperBound="-1" eType="#//Survey" containment="true"/>
+        upperBound="-1" eType="#//Survey" containment="true">
+      <eAnnotations source="gmf.compartment"/>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SocialContent">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="uri"/>
+      <details key="color" value="230,230,230"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//SocialType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uri" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -99,10 +182,22 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
       <details key="R12_AdminMustSeeSurvey" value="self.permissions = dataWeb::PermissionType::ADMIN implies self.accessiblePages->exists(p :&#xA;&#x9;&#x9;&#x9;Page | p.oclIsKindOf(dataWeb::SurveyPage))"/>
     </eAnnotations>
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+      <details key="color" value="255,240,200"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="permissions" eType="#//PermissionType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="accessiblePages" upperBound="-1"
-        eType="#//Page"/>
+        eType="#//Page">
+      <eAnnotations source="gmf.link">
+        <details key="source" value="Role"/>
+        <details key="target" value="Page"/>
+        <details key="target.decoration" value="arrow"/>
+        <details key="color" value="128,0,128"/>
+        <details key="width" value="1"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numeroEntidadesAccesibles"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         volatile="true" transient="true" derived="true">
@@ -119,22 +214,36 @@
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Link">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="description"/>
+      <details key="color" value="255,255,255"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="externalURL" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Pagination">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="pageSize"/>
+      <details key="color" value="255,255,255"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pageSize" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Survey">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="representation"/>
+      <details key="color" value="200,255,200"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="question" lowerBound="1"
-        upperBound="-1" eType="#//Question" containment="true"/>
+        upperBound="-1" eType="#//Question" containment="true">
+      <eAnnotations source="gmf.compartment"/>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="representation" eType="#//ChartType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numeroPregVF" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" volatile="true"
         transient="true" derived="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="D03: número de preguntas Verdadero/Falso"/>
+        <details key="documentation" value="D03: nï¿½mero de preguntas Verdadero/Falso"/>
       </eAnnotations>
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
         <details key="derivation" value="self.question->select(q | q.oclIsKindOf(TrueFalseQuestion))->size()"/>
@@ -144,7 +253,7 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" volatile="true"
         transient="true" derived="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="D04: número de preguntas de selección múltiple"/>
+        <details key="documentation" value="D04: nï¿½mero de preguntas de selecciï¿½n mï¿½ltiple"/>
       </eAnnotations>
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
         <details key="derivation" value="self.question->select(q | q.oclIsKindOf(MCQuestion))->size()"/>
@@ -152,6 +261,10 @@
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Question" abstract="true">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="text"/>
+      <details key="color" value="255,255,230"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isMandatory" lowerBound="1"
@@ -164,8 +277,14 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
       <details key="R10_MandatoryMCQuestionsHaveOptions" value="self.isMandatory implies self.option->size() > 0"/>
     </eAnnotations>
+    <eAnnotations source="gmf.node">
+      <details key="label" value="text"/>
+      <details key="color" value="255,230,230"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="option" lowerBound="1"
-        upperBound="-1" eType="#//AnswerOption" containment="true"/>
+        upperBound="-1" eType="#//AnswerOption" containment="true">
+      <eAnnotations source="gmf.compartment"/>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TrueFalseQuestion" eSuperTypes="#//Question">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
@@ -174,19 +293,40 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
       <details key="R11_MandatoryTFQuestionsHaveAnswer" value="self.isMandatory implies (self.correctAnswer = true or self.correctAnswer = false)"/>
     </eAnnotations>
+    <eAnnotations source="gmf.node">
+      <details key="label" value="text"/>
+      <details key="color" value="230,255,230"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="correctAnswer" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ShortQuestion" eSuperTypes="#//Question"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ShortQuestion" eSuperTypes="#//Question">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="text"/>
+      <details key="color" value="240,240,240"/>
+    </eAnnotations>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AnswerOption">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="text"/>
+      <details key="color" value="255,255,255"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="DataType">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+      <details key="color" value="220,220,220"/>
+    </eAnnotations>
     <eLiterals name="Integer"/>
     <eLiterals name="Boolean" value="1"/>
     <eLiterals name="String" value="2"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="PageType">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+      <details key="color" value="220,220,220"/>
+    </eAnnotations>
     <eLiterals name="Create"/>
     <eLiterals name="Index" value="1"/>
     <eLiterals name="ExtendedIndex" value="2"/>
@@ -197,16 +337,28 @@
     <eLiterals name="CRUD" value="7"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="SocialType">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+      <details key="color" value="220,220,220"/>
+    </eAnnotations>
     <eLiterals name="Twitter"/>
     <eLiterals name="Facebook" value="1"/>
     <eLiterals name="RSS" value="2"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ChartType">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+      <details key="color" value="220,220,220"/>
+    </eAnnotations>
     <eLiterals name="Text"/>
     <eLiterals name="Bar" value="1"/>
     <eLiterals name="Pie" value="2"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Multiplicity">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+      <details key="color" value="220,220,220"/>
+    </eAnnotations>
     <eLiterals name="ZERO_ONE"/>
     <eLiterals name="ONE_ONE" value="1"/>
     <eLiterals name="ZERO_MANY" value="2"/>
@@ -214,6 +366,10 @@
     <eLiterals name="MANY_MANY" value="4"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="PermissionType">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+      <details key="color" value="220,220,220"/>
+    </eAnnotations>
     <eLiterals name="READ"/>
     <eLiterals name="WRITE" value="1"/>
     <eLiterals name="ADMIN" value="2"/>
