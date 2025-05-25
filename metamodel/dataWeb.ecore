@@ -94,6 +94,20 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="accessiblePages" upperBound="-1"
         eType="#//Page"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numeroEntidadesAccesibles"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        volatile="true" transient="true" derived="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+        <details key="derivation" value="&#xA;      self.accessiblePages&#xA;        ->select(p | p.oclIsKindOf(EntityPage))&#xA;        ->collect(p | p.oclAsType(EntityPage).entity)&#xA;        ->asSet()&#xA;        ->size()"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="paginasMediasAccesibles"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        volatile="true" transient="true" derived="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+        <details key="derivation" value="&#xA;      let totalPaginas = self.accessiblePages->size(),&#xA;         &#xA;          app         = dataWeb::Application.allInstances()&#xA;                          ->any(a | a.role->includes(self)),&#xA;          totalRoles  = app.role->size()&#xA;      in&#xA;        totalPaginas / totalRoles"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Link">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -107,6 +121,26 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="question" lowerBound="1"
         upperBound="-1" eType="#//Question" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="representation" eType="#//ChartType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numeroPregVF" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" volatile="true"
+        transient="true" derived="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="D03: número de preguntas Verdadero/Falso"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+        <details key="derivation" value="&#xA;      self.question&#xA;        ->select(q | q.oclIsKindOf(TrueFalseQuestion))&#xA;        ->size()"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numeroPregSelect" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" volatile="true"
+        transient="true" derived="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="D04: número de preguntas de selección múltiple"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+        <details key="derivation" value="&#xA;      self.question&#xA;        ->select(q | q.oclIsKindOf(MCQuestion))&#xA;        ->size()"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Question" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
