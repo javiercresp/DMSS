@@ -14,9 +14,9 @@
       <details key="constraints" value="R01_UnicaIndexHome R04_SocialRSS R06b_MinSurvey"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-      <details key="R01_UnicaIndexHome" value="&#xA;      entity.pageconfig->select(pc | pc.pageType = PageType::Index)->size() = 1"/>
-      <details key="R04_SocialRSS" value="&#xA;      socialcontent->select(sc | sc.type = SocialType::Twitter or sc.type = SocialType::Facebook)->size() >= 1&#xA;      and socialcontent->select(sc | sc.type = SocialType::RSS)->size() >= 1"/>
-      <details key="R06b_MinSurvey" value="&#xA;      page->select(p | p.oclIsKindOf(SurveyPage))->size() >= 1"/>
+      <details key="R01_UnicaIndexHome" value="entity.pageconfig->select(pc | pc.pageType = PageType::Index)->size() = 1"/>
+      <details key="R04_SocialRSS" value="socialcontent->select(sc |&#xA;&#x9;&#x9;&#x9;&#x9;sc.type = SocialType::Twitter or sc.type = SocialType::Facebook)->size() >= 1 and socialcontent->select(sc |&#xA;&#x9;&#x9;&#x9;&#x9;sc.type = SocialType::RSS)->size() >= 1"/>
+      <details key="R06b_MinSurvey" value="page->select(p | p.oclIsKindOf(SurveyPage))->size() >= 1"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="entity" upperBound="-1"
@@ -33,10 +33,10 @@
       <details key="constraints" value="R02_CRUDIncompatible R03_IndiceDetalle R05_NoSelfReference R08_UniqueIndexPerEntity"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-      <details key="R02_CRUDIncompatible" value="&#xA;      pageconfig->exists(pc | pc.pageType = PageType::CRUD)&#xA;      implies pageconfig->forAll(pc | pc.pageType = PageType::CRUD)"/>
-      <details key="R03_IndiceDetalle" value="&#xA;      (pageconfig->exists(pc | pc.pageType = PageType::Index or pc.pageType = PageType::ExtendedIndex)&#xA;         implies pageconfig->exists(pc | pc.pageType = PageType::Detail or pc.pageType = PageType::IndexDetail))&#xA;      and&#xA;      (pageconfig->exists(pc | pc.pageType = PageType::Detail or pc.pageType = PageType::IndexDetail)&#xA;         implies pageconfig->exists(pc | pc.pageType = PageType::Index or pc.pageType = PageType::ExtendedIndex))"/>
-      <details key="R05_NoSelfReference" value="&#xA;      reference->forAll(ref | ref.name &lt;> name)"/>
-      <details key="R08_UniqueIndexPerEntity" value="&#xA;      pageconfig->select(pc | pc.pageType = PageType::Index)->size() &lt;= 1"/>
+      <details key="R02_CRUDIncompatible" value="pageconfig->exists(pc | pc.pageType = PageType::CRUD) implies pageconfig->forAll(pc&#xA;&#x9;&#x9;&#x9;&#x9;| pc.pageType = PageType::CRUD)"/>
+      <details key="R03_IndiceDetalle" value="(pageconfig->exists(pc |&#xA;&#x9;&#x9;&#x9;&#x9;pc.pageType = PageType::Index or pc.pageType = PageType::ExtendedIndex) implies pageconfig->exists(pc |&#xA;&#x9;&#x9;&#x9;&#x9;pc.pageType = PageType::Detail or pc.pageType = PageType::IndexDetail)) and (pageconfig->exists(pc |&#xA;&#x9;&#x9;&#x9;&#x9;pc.pageType = PageType::Detail or pc.pageType = PageType::IndexDetail) implies pageconfig->exists(pc |&#xA;&#x9;&#x9;&#x9;&#x9;pc.pageType = PageType::Index or pc.pageType = PageType::ExtendedIndex))"/>
+      <details key="R05_NoSelfReference" value="reference->forAll(ref | ref.name &lt;> name)"/>
+      <details key="R08_UniqueIndexPerEntity" value="pageconfig->select(pc | pc.pageType = PageType::Index)->size() &lt;= 1"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" upperBound="-1"
         eType="#//Attribute" containment="true"/>
@@ -60,13 +60,15 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="socialcontent" eType="#//SocialContent"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="metaDescription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="metaKeywords" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PageConfig">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="R09_ValidIndexAttributes"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-      <details key="R09_ValidIndexAttributes" value="&#xA;  attribute &lt;> null implies&#xA;    let parent : dataWeb::Entity = self.oclContainer().oclAsType(dataWeb::Entity) in&#xA;      parent.attribute->includes(self.attribute)"/>
+      <details key="R09_ValidIndexAttributes" value="attribute &lt;> null implies let parent : dataWeb::Entity =&#xA;&#x9;&#x9;&#x9;self.oclContainer().oclAsType(dataWeb::Entity)&#xA;&#x9;in parent.attribute->includes(self.attribute)"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="pagination" upperBound="-1"
         eType="#//Pagination" containment="true"/>
@@ -81,7 +83,7 @@
       <details key="constraints" value="R07_ResponsesDefined"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-      <details key="R07_ResponsesDefined" value="&#xA;      survey.question->forAll(q |&#xA;        (q.oclIsKindOf(TrueFalseQuestion)&#xA;           implies q.oclAsType(TrueFalseQuestion).correctAnswer = true or&#xA;                   q.oclAsType(TrueFalseQuestion).correctAnswer = false)&#xA;        and&#xA;        (q.oclIsKindOf(MCQuestion)&#xA;           implies q.oclAsType(MCQuestion).option->size() > 0)&#xA;      )"/>
+      <details key="R07_ResponsesDefined" value="survey.question->forAll(q |&#xA;&#x9;&#x9;&#x9;(q.oclIsKindOf(TrueFalseQuestion) implies q.oclAsType(TrueFalseQuestion).correctAnswer = true or q.oclAsType(TrueFalseQuestion).correctAnswer = false) and (q.oclIsKindOf(MCQuestion) implies q.oclAsType(MCQuestion).option->size() > 0))"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="survey" lowerBound="1"
         upperBound="-1" eType="#//Survey" containment="true"/>
@@ -91,21 +93,28 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uri" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Role">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="R12_AdminMustSeeSurvey"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="R12_AdminMustSeeSurvey" value="self.permissions = dataWeb::PermissionType::ADMIN implies self.accessiblePages->exists(p :&#xA;&#x9;&#x9;&#x9;Page | p.oclIsKindOf(dataWeb::SurveyPage))"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="permissions" eType="#//PermissionType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="accessiblePages" upperBound="-1"
         eType="#//Page"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numeroEntidadesAccesibles"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         volatile="true" transient="true" derived="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-        <details key="derivation" value="&#xA;      self.accessiblePages&#xA;        ->select(p | p.oclIsKindOf(EntityPage))&#xA;        ->collect(p | p.oclAsType(EntityPage).entity)&#xA;        ->asSet()&#xA;        ->size()"/>
+        <details key="derivation" value="self.accessiblePages->select(p | p.oclIsKindOf(EntityPage))->collect(p |&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;p.oclAsType(EntityPage).entity)->asSet()->size()"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="paginasMediasAccesibles"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         volatile="true" transient="true" derived="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-        <details key="derivation" value="&#xA;      let totalPaginas = self.accessiblePages->size(),&#xA;         &#xA;          app         = dataWeb::Application.allInstances()&#xA;                          ->any(a | a.role->includes(self)),&#xA;          totalRoles  = app.role->size()&#xA;      in&#xA;        totalPaginas / totalRoles"/>
+        <details key="derivation" value="let totalPaginas = self.accessiblePages->size() , app = dataWeb::Application.allInstances()->any(a |&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;a.role->includes(self)) , totalRoles = app.role->size()&#xA;&#x9;in totalPaginas / totalRoles"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
@@ -128,7 +137,7 @@
         <details key="documentation" value="D03: número de preguntas Verdadero/Falso"/>
       </eAnnotations>
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-        <details key="derivation" value="&#xA;      self.question&#xA;        ->select(q | q.oclIsKindOf(TrueFalseQuestion))&#xA;        ->size()"/>
+        <details key="derivation" value="self.question->select(q | q.oclIsKindOf(TrueFalseQuestion))->size()"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numeroPregSelect" lowerBound="1"
@@ -138,19 +147,33 @@
         <details key="documentation" value="D04: número de preguntas de selección múltiple"/>
       </eAnnotations>
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-        <details key="derivation" value="&#xA;      self.question&#xA;        ->select(q | q.oclIsKindOf(MCQuestion))&#xA;        ->size()"/>
+        <details key="derivation" value="self.question->select(q | q.oclIsKindOf(MCQuestion))->size()"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Question" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isMandatory" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MCQuestion" eSuperTypes="#//Question">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="R10_MandatoryMCQuestionsHaveOptions"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="R10_MandatoryMCQuestionsHaveOptions" value="self.isMandatory implies self.option->size() > 0"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="option" lowerBound="1"
         upperBound="-1" eType="#//AnswerOption" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TrueFalseQuestion" eSuperTypes="#//Question">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="R11_MandatoryTFQuestionsHaveAnswer"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="R11_MandatoryTFQuestionsHaveAnswer" value="self.isMandatory implies (self.correctAnswer = true or self.correctAnswer = false)"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="correctAnswer" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
@@ -189,5 +212,10 @@
     <eLiterals name="ZERO_MANY" value="2"/>
     <eLiterals name="ONE_MANY" value="3"/>
     <eLiterals name="MANY_MANY" value="4"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="PermissionType">
+    <eLiterals name="READ"/>
+    <eLiterals name="WRITE" value="1"/>
+    <eLiterals name="ADMIN" value="2"/>
   </eClassifiers>
 </ecore:EPackage>
