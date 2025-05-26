@@ -1,3 +1,119 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataWeb:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:dataWeb="http://www.example.org/dataWeb" xsi:schemaLocation="http://www.example.org/dataWeb ../metamodel/dataWeb.ecore"/>
+<dataWeb:Application
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:dataWeb="http://www.example.org/dataWeb"
+    xsi:schemaLocation="http://www.example.org/dataWeb ../metamodel/dataWeb.ecore"
+    name="TiendaLibros">
+  <entity name="Libro">
+    <attribute
+        name="Title"
+        type="String"/>
+    <attribute
+        name="Author"
+        type="String"/>
+    <attribute
+        name="Price"/>
+    <attribute
+        name="ISBN"
+        type="String"/>
+    <pageconfig
+        pageType="Index"
+        attribute="//@entity.0/@attribute.0">
+      <pagination
+          pageSize="10"/>
+    </pageconfig>
+    <pageconfig
+        pageType="Detail"
+        attribute="//@entity.0/@attribute.3">
+      <pagination
+          pageSize="1"/>
+    </pageconfig>
+  </entity>
+  <entity name="Cliente">
+    <attribute
+        name="Name"
+        type="String"/>
+    <attribute
+        name="Email"
+        type="String"/>
+    <pageconfig
+        pageType="Detail"
+        attribute="//@entity.1/@attribute.1">
+      <pagination
+          pageSize="20"/>
+    </pageconfig>
+    <pageconfig
+        pageType="ExtendedIndex"
+        attribute="//@entity.1/@attribute.0">
+      <pagination
+          pageSize="20"/>
+    </pageconfig>
+  </entity>
+  <page xsi:type="dataWeb:SurveyPage"
+      id="home"
+      title="Inicio"
+      socialcontent="//@socialcontent.0">
+    <link description="Ver Libros"
+        externalURL="Libro_Index.html"/>
+    <link description="Ver Clientes"
+        externalURL="Cliente_Index.html"/>
+    <survey>
+      <question
+          xsi:type="dataWeb:ShortQuestion"
+          id="q3"
+          text="¿Está satisfecho con el servicio?"
+          isMandatory="true"/>
+    </survey>
+  </page>
+  <page xsi:type="dataWeb:SurveyPage"
+      id="encuestaSat"
+      title="Encuesta de Satisfacción"
+      socialcontent="//@socialcontent.1">
+    <survey
+        representation="Pie">
+      <question
+          xsi:type="dataWeb:TrueFalseQuestion"
+          id="q1"
+          text="¿Te ha gustado el sitio?"
+          isMandatory="true"
+          correctAnswer="true"/>
+      <question
+          xsi:type="dataWeb:MCQuestion"
+          id="q2"
+          text="¿Qué sección visitas más?">
+        <option
+            text="Libros"/>
+        <option
+            text="Clientes"/>
+      </question>
+    </survey>
+  </page>
+  <page xsi:type="dataWeb:SurveyPage"
+      id="adminPanel"
+      title="Panel de control">
+    <link description="Gestión de Libros"
+        externalURL="Libro_Gestion.html"/>
+    <link description="Gestión de Clientes"
+        externalURL="Cliente_Gestion.html"/>
+    <survey
+        representation="Bar">
+      <question
+          xsi:type="dataWeb:TrueFalseQuestion"
+          id="q4"
+          text="¿Desea eliminar algún cliente?"
+          isMandatory="true"/>
+    </survey>
+  </page>
+  <socialcontent
+      uri="https://twitter.com/TiendaLibros"/>
+  <socialcontent
+      type="RSS"
+      uri="https://tiendalibros.com/rss"/>
+  <role name="Administrador"
+      permissions="ADMIN"
+      accessiblePages="//@page.0 //@page.1"/>
+  <role name="Cliente"
+      accessiblePages="//@page.0 //@page.1"/>
+</dataWeb:Application>
