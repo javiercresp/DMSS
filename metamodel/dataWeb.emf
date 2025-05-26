@@ -1,0 +1,243 @@
+@"http://www.eclipse.org/OCL/Import"(ecore="http://www.eclipse.org/emf/2002/Ecore")
+@Ecore(invocationDelegates="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", settingDelegates="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", validationDelegates="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot")
+@gmf
+@GenModel(operationReflection="true", tableProviders="true", complianceLevel="6.0")
+@namespace(uri="http://www.example.org/dataWeb", prefix="dataWeb")
+@GenModel(operationReflection="true",tableProviders="true",complianceLevel="6.0") 
+package dataWeb;
+
+@Ecore(constraints="R01_UnicaIndexHome R04_SocialRSS R06b_MinSurvey")
+@"http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"(R01_UnicaIndexHome="entity.pageconfig->select(pc | pc.pageType = PageType::Index)->size() = 1", R04_SocialRSS="socialcontent->select(sc |
+				sc.type = SocialType::Twitter or sc.type = SocialType::Facebook)->size() >= 1 and socialcontent->select(sc |
+				sc.type = SocialType::RSS)->size() >= 1", R06b_MinSurvey="page->select(p | p.oclIsKindOf(SurveyPage))->size() >= 1")
+@gmf.diagram
+class Application {
+	attr String name;
+
+	@gmf.compartment
+	val Entity[*] entity;
+
+	@gmf.compartment
+	val Page[+] page;
+
+	@gmf.compartment
+	val SocialContent[*] socialcontent;
+
+	@gmf.compartment
+	val Role[*] role;
+}
+
+@Ecore(constraints="R02_CRUDIncompatible R03_IndiceDetalle R05_NoSelfReference R08_UniqueIndexPerEntity")
+@"http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"(R02_CRUDIncompatible="pageconfig->exists(pc | pc.pageType = PageType::CRUD) implies pageconfig->forAll(pc
+				| pc.pageType = PageType::CRUD)", R03_IndiceDetalle="(pageconfig->exists(pc |
+				pc.pageType = PageType::Index or pc.pageType = PageType::ExtendedIndex) implies pageconfig->exists(pc |
+				pc.pageType = PageType::Detail or pc.pageType = PageType::IndexDetail)) and (pageconfig->exists(pc |
+				pc.pageType = PageType::Detail or pc.pageType = PageType::IndexDetail) implies pageconfig->exists(pc |
+				pc.pageType = PageType::Index or pc.pageType = PageType::ExtendedIndex))", R05_NoSelfReference="reference->forAll(ref | ref.name <> name)", R08_UniqueIndexPerEntity="pageconfig->select(pc | pc.pageType = PageType::Index)->size() <= 1")
+@gmf.node(label="name", color="200,200,255")
+class Entity {
+
+	@gmf.compartment
+	val Attribute[*] attribute;
+
+	@gmf.compartment
+	val Reference[*] reference;
+
+	@gmf.compartment
+	val PageConfig[*] pageconfig;
+	attr String name;
+}
+
+@gmf.node(label="name", color="255,230,200")
+class Reference {
+	attr String name;
+	attr Multiplicity multiplicity;
+}
+
+@gmf.node(label="name", color="255,230,200")
+class Attribute {
+	attr String name;
+	attr DataType type;
+}
+
+@gmf.node(label="name", color="255,230,200")
+abstract class Page {
+
+	@gmf.compartment
+	val Link[*] link;
+	attr String ~id;
+	attr String title;
+
+	@gmf.link(source="Page", target="SocialContent", target.decoration="arrow", color="128,128,0", width="1")
+	ref SocialContent socialcontent;
+	attr String metaDescription;
+	attr String metaKeywords;
+}
+
+@Ecore(constraints="R09_ValidIndexAttributes")
+@"http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"(R09_ValidIndexAttributes="attribute <> null implies let parent : dataWeb::Entity =
+			self.oclContainer().oclAsType(dataWeb::Entity)
+	in parent.attribute->includes(self.attribute)")
+@gmf.node(label="pageType", color="240,240,240")
+class PageConfig {
+
+	@gmf.compartment
+	val Pagination[*] pagination;
+	attr PageType pageType;
+
+	@gmf.link(source="PageConfig", target="Attribute", target.decoration="arrow", color="128,128,128", width="1")
+	ref Attribute attribute;
+}
+
+@gmf.node(label="title", color="200,230,255")
+abstract class EntityPage extends Page {
+
+	@gmf.link(source="EntityPage", target="Entity", target.decoration="arrow", color="0,128,0", width="2")
+	ref Entity entity;
+}
+
+@Ecore(constraints="R07_ResponsesDefined")
+@"http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"(R07_ResponsesDefined="survey.question->forAll(q |
+			(q.oclIsKindOf(TrueFalseQuestion) implies q.oclAsType(TrueFalseQuestion).correctAnswer = true or q.oclAsType(TrueFalseQuestion).correctAnswer = false) and (q.oclIsKindOf(MCQuestion) implies q.oclAsType(MCQuestion).option->size() > 0))")
+@gmf.node(label="title", color="200,200,255")
+class SurveyPage extends Page {
+
+	@gmf.compartment
+	val Survey[+] survey;
+}
+
+@gmf.node(label="uri", color="230,230,230")
+class SocialContent {
+	attr SocialType type;
+	attr String uri;
+}
+
+@Ecore(constraints="R12_AdminMustSeeSurvey")
+@"http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"(R12_AdminMustSeeSurvey="self.permissions = dataWeb::PermissionType::ADMIN implies self.accessiblePages->exists(p :
+			Page | p.oclIsKindOf(dataWeb::SurveyPage))")
+@gmf.node(label="name", color="255,240,200")
+class Role {
+	attr String name;
+	attr PermissionType permissions;
+
+	@gmf.link(source="Role", target="Page", target.decoration="arrow", color="128,0,128", width="1")
+	ref Page[*] accessiblePages;
+
+	@"http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"(derivation="self.accessiblePages->select(p | p.oclIsKindOf(EntityPage))->collect(p |
+					p.oclAsType(EntityPage).entity)->asSet()->size()")
+	volatile transient derived attr int[1] numeroEntidadesAccesibles;
+
+	@"http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"(derivation="let totalPaginas = self.accessiblePages->size() , app = dataWeb::Application.allInstances()->any(a |
+					a.role->includes(self)) , totalRoles = app.role->size()
+	in totalPaginas / totalRoles")
+	volatile transient derived attr double[1] paginasMediasAccesibles;
+}
+
+@gmf.node(label="description", color="255,255,255")
+class Link {
+	attr String description;
+	attr String externalURL;
+}
+
+@gmf.node(label="pageSize", color="255,255,255")
+class Pagination {
+	attr int[1] pageSize;
+}
+
+@gmf.node(label="representation", color="200,255,200")
+class Survey {
+
+	@gmf.compartment
+	val Question[+] question;
+	attr ChartType representation;
+
+	@GenModel(documentation="D03: n�mero de preguntas Verdadero/Falso")
+	@"http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"(derivation="self.question->select(q | q.oclIsKindOf(TrueFalseQuestion))->size()")
+	volatile transient derived attr int[1] numeroPregVF;
+
+	@GenModel(documentation="D04: n�mero de preguntas de selecci�n m�ltiple")
+	@"http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"(derivation="self.question->select(q | q.oclIsKindOf(MCQuestion))->size()")
+	volatile transient derived attr int[1] numeroPregSelect;
+}
+
+@gmf.node(label="text", color="255,255,230")
+abstract class Question {
+	attr String ~id;
+	attr String text;
+	attr boolean[1] isMandatory;
+}
+
+@Ecore(constraints="R10_MandatoryMCQuestionsHaveOptions")
+@"http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"(R10_MandatoryMCQuestionsHaveOptions="self.isMandatory implies self.option->size() > 0")
+@gmf.node(label="text", color="255,230,230")
+class MCQuestion extends Question {
+
+	@gmf.compartment
+	val AnswerOption[+] option;
+}
+
+@Ecore(constraints="R11_MandatoryTFQuestionsHaveAnswer")
+@"http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"(R11_MandatoryTFQuestionsHaveAnswer="self.isMandatory implies (self.correctAnswer = true or self.correctAnswer = false)")
+@gmf.node(label="text", color="230,255,230")
+class TrueFalseQuestion extends Question {
+	attr boolean[1] correctAnswer;
+}
+
+@gmf.node(label="text", color="240,240,240")
+class ShortQuestion extends Question {
+}
+
+@gmf.node(label="text", color="255,255,255")
+class AnswerOption {
+	attr String text;
+}
+
+@gmf.node(label="name", color="220,220,220")
+enum DataType {
+	Integer = 0;
+	Boolean = 1;
+	String = 2;
+}
+
+@gmf.node(label="name", color="220,220,220")
+enum PageType {
+	Create = 0;
+	Index = 1;
+	ExtendedIndex = 2;
+	IndexDetail = 3;
+	Detail = 4;
+	Update = 5;
+	Delete = 6;
+	CRUD = 7;
+}
+
+@gmf.node(label="name", color="220,220,220")
+enum SocialType {
+	Twitter = 0;
+	Facebook = 1;
+	RSS = 2;
+}
+
+@gmf.node(label="name", color="220,220,220")
+enum ChartType {
+	Text = 0;
+	Bar = 1;
+	Pie = 2;
+}
+
+@gmf.node(label="name", color="220,220,220")
+enum Multiplicity {
+	ZERO_ONE = 0;
+	ONE_ONE = 1;
+	ZERO_MANY = 2;
+	ONE_MANY = 3;
+	MANY_MANY = 4;
+}
+
+@gmf.node(label="name", color="220,220,220")
+enum PermissionType {
+	READ = 0;
+	WRITE = 1;
+	ADMIN = 2;
+}
+
