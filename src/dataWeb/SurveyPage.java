@@ -41,7 +41,7 @@ public interface SurveyPage extends Page {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='survey.question-&gt;forAll(q |\n\t\t\t(q.oclIsKindOf(TrueFalseQuestion) implies q.oclAsType(TrueFalseQuestion).correctAnswer = true or q.oclAsType(TrueFalseQuestion).correctAnswer = false) and (q.oclIsKindOf(MCQuestion) implies q.oclAsType(MCQuestion).option-&gt;size() &gt; 0))'"
+	 * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='survey.question-&gt;forAll(q |\r\n\t\t\t(q.oclIsKindOf(TrueFalseQuestion) implies q.oclAsType(TrueFalseQuestion).correctAnswer = true or q.oclAsType(TrueFalseQuestion).correctAnswer = false) and (q.oclIsKindOf(MCQuestion) implies q.oclAsType(MCQuestion).option-&gt;size() &gt; 0))'"
 	 * @generated
 	 */
 	boolean R07_ResponsesDefined(DiagnosticChain diagnostics, Map<Object, Object> context);

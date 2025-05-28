@@ -92,7 +92,7 @@ public interface PageConfig extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='attribute &lt;&gt; null implies let parent : dataWeb::Entity =\n\t\t\tself.oclContainer().oclAsType(dataWeb::Entity)\n\tin parent.attribute-&gt;includes(self.attribute)'"
+	 * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='attribute &lt;&gt; null implies let parent : dataWeb::Entity =\r\n\t\t\tself.oclContainer().oclAsType(dataWeb::Entity)\r\n\tin parent.attribute-&gt;includes(self.attribute)'"
 	 * @generated
 	 */
 	boolean R09_ValidIndexAttributes(DiagnosticChain diagnostics, Map<Object, Object> context);

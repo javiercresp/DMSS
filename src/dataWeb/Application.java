@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.EObject;
  * @see dataWeb.DataWebPackage#getApplication()
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='R01_UnicaIndexHome'"
  *        annotation="gmf.diagram"
+ *        annotation="gmf.node label='name' color='200,200,255'"
  * @generated
  */
 public interface Application extends EObject {
@@ -108,7 +109,7 @@ public interface Application extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='socialcontent-&gt;select(sc |\n\t\t\t\tsc.type = SocialType::Twitter or sc.type = SocialType::Facebook)-&gt;size() &gt;= 1 and socialcontent-&gt;select(sc |\n\t\t\t\tsc.type = SocialType::RSS)-&gt;size() &gt;= 1'"
+	 * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='socialcontent-&gt;select(sc |\r\n\t\t\t\tsc.type = SocialType::Twitter or sc.type = SocialType::Facebook)-&gt;size() &gt;= 1 and socialcontent-&gt;select(sc |\r\n\t\t\t\tsc.type = SocialType::RSS)-&gt;size() &gt;= 1'"
 	 * @generated
 	 */
 	boolean R04_SocialRSS(DiagnosticChain diagnostics, Map<Object, Object> context);

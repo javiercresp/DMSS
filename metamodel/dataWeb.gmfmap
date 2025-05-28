@@ -22,7 +22,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="dataWeb.gmftool#//@palette/@tools.0/@tools.12"/>
+          href="dataWeb.gmftool#//@palette/@tools.0/@tools.13"/>
       <diagramNode
           href="dataWeb.gmfgraph#SurveyPage"/>
       <children
@@ -41,7 +41,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="dataWeb.gmftool#//@palette/@tools.0/@tools.3"/>
+              href="dataWeb.gmftool#//@palette/@tools.0/@tools.4"/>
           <diagramNode
               href="dataWeb.gmfgraph#Link"/>
         </ownedChild>
@@ -63,7 +63,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="dataWeb.gmftool#//@palette/@tools.0/@tools.11"/>
+              href="dataWeb.gmftool#//@palette/@tools.0/@tools.12"/>
           <diagramNode
               href="dataWeb.gmfgraph#Survey"/>
           <children
@@ -83,7 +83,7 @@
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
-                  href="dataWeb.gmftool#//@palette/@tools.0/@tools.4"/>
+                  href="dataWeb.gmftool#//@palette/@tools.0/@tools.5"/>
               <diagramNode
                   href="dataWeb.gmfgraph#MCQuestion"/>
               <children
@@ -130,7 +130,7 @@
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
-                  href="dataWeb.gmftool#//@palette/@tools.0/@tools.13"/>
+                  href="dataWeb.gmftool#//@palette/@tools.0/@tools.14"/>
               <diagramNode
                   href="dataWeb.gmfgraph#TrueFalseQuestion"/>
             </ownedChild>
@@ -151,7 +151,7 @@
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
-                  href="dataWeb.gmftool#//@palette/@tools.0/@tools.9"/>
+                  href="dataWeb.gmftool#//@palette/@tools.0/@tools.10"/>
               <diagramNode
                   href="dataWeb.gmfgraph#ShortQuestion"/>
             </ownedChild>
@@ -191,7 +191,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="dataWeb.gmftool#//@palette/@tools.0/@tools.2"/>
+          href="dataWeb.gmftool#//@palette/@tools.0/@tools.3"/>
       <diagramNode
           href="dataWeb.gmfgraph#Entity"/>
       <children
@@ -210,7 +210,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="dataWeb.gmftool#//@palette/@tools.0/@tools.1"/>
+              href="dataWeb.gmftool#//@palette/@tools.0/@tools.2"/>
           <diagramNode
               href="dataWeb.gmfgraph#Attribute"/>
         </ownedChild>
@@ -231,7 +231,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="dataWeb.gmftool#//@palette/@tools.0/@tools.7"/>
+              href="dataWeb.gmftool#//@palette/@tools.0/@tools.8"/>
           <diagramNode
               href="dataWeb.gmfgraph#Reference"/>
         </ownedChild>
@@ -253,7 +253,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="dataWeb.gmftool#//@palette/@tools.0/@tools.5"/>
+              href="dataWeb.gmftool#//@palette/@tools.0/@tools.6"/>
           <diagramNode
               href="dataWeb.gmfgraph#PageConfig"/>
           <children
@@ -272,7 +272,7 @@
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
-                  href="dataWeb.gmftool#//@palette/@tools.0/@tools.6"/>
+                  href="dataWeb.gmftool#//@palette/@tools.0/@tools.7"/>
               <diagramNode
                   href="dataWeb.gmfgraph#Pagination"/>
             </ownedChild>
@@ -316,7 +316,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="dataWeb.gmftool#//@palette/@tools.0/@tools.10"/>
+          href="dataWeb.gmftool#//@palette/@tools.0/@tools.11"/>
       <diagramNode
           href="dataWeb.gmfgraph#SocialContent"/>
     </ownedChild>
@@ -336,7 +336,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="dataWeb.gmftool#//@palette/@tools.0/@tools.8"/>
+          href="dataWeb.gmftool#//@palette/@tools.0/@tools.9"/>
       <diagramNode
           href="dataWeb.gmfgraph#Role"/>
     </ownedChild>

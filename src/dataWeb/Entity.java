@@ -102,7 +102,7 @@ public interface Entity extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='(pageconfig-&gt;exists(pc |\n\t\t\t\tpc.pageType = PageType::Index or pc.pageType = PageType::ExtendedIndex) implies pageconfig-&gt;exists(pc |\n\t\t\t\tpc.pageType = PageType::Detail or pc.pageType = PageType::IndexDetail)) and (pageconfig-&gt;exists(pc |\n\t\t\t\tpc.pageType = PageType::Detail or pc.pageType = PageType::IndexDetail) implies pageconfig-&gt;exists(pc |\n\t\t\t\tpc.pageType = PageType::Index or pc.pageType = PageType::ExtendedIndex))'"
+	 * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='(pageconfig-&gt;exists(pc |\r\n\t\t\t\tpc.pageType = PageType::Index or pc.pageType = PageType::ExtendedIndex) implies pageconfig-&gt;exists(pc |\r\n\t\t\t\tpc.pageType = PageType::Detail or pc.pageType = PageType::IndexDetail)) and (pageconfig-&gt;exists(pc |\r\n\t\t\t\tpc.pageType = PageType::Detail or pc.pageType = PageType::IndexDetail) implies pageconfig-&gt;exists(pc |\r\n\t\t\t\tpc.pageType = PageType::Index or pc.pageType = PageType::ExtendedIndex))'"
 	 * @generated
 	 */
 	boolean R03_IndiceDetalle(DiagnosticChain diagnostics, Map<Object, Object> context);
@@ -110,7 +110,7 @@ public interface Entity extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='pageconfig-&gt;exists(pc | pc.pageType = PageType::CRUD) implies pageconfig-&gt;forAll(pc\n\t\t\t\t| pc.pageType = PageType::CRUD)'"
+	 * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='pageconfig-&gt;exists(pc | pc.pageType = PageType::CRUD) implies pageconfig-&gt;forAll(pc\r\n\t\t\t\t| pc.pageType = PageType::CRUD)'"
 	 * @generated
 	 */
 	boolean R02_CRUDIncompatible(DiagnosticChain diagnostics, Map<Object, Object> context);

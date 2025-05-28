@@ -15,21 +15,20 @@
     <details key="tableProviders" value="true"/>
     <details key="complianceLevel" value="6.0"/>
   </eAnnotations>
-  <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-    <details key="operationReflection" value="true"/>
-    <details key="tableProviders" value="true"/>
-    <details key="complianceLevel" value="6.0"/>
-  </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="Application">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="R01_UnicaIndexHome R04_SocialRSS R06b_MinSurvey"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
       <details key="R01_UnicaIndexHome" value="entity.pageconfig->select(pc | pc.pageType = PageType::Index)->size() = 1"/>
-      <details key="R04_SocialRSS" value="socialcontent->select(sc |&#xA;&#x9;&#x9;&#x9;&#x9;sc.type = SocialType::Twitter or sc.type = SocialType::Facebook)->size() >= 1 and socialcontent->select(sc |&#xA;&#x9;&#x9;&#x9;&#x9;sc.type = SocialType::RSS)->size() >= 1"/>
+      <details key="R04_SocialRSS" value="socialcontent->select(sc |&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;sc.type = SocialType::Twitter or sc.type = SocialType::Facebook)->size() >= 1 and socialcontent->select(sc |&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;sc.type = SocialType::RSS)->size() >= 1"/>
       <details key="R06b_MinSurvey" value="page->select(p | p.oclIsKindOf(SurveyPage))->size() >= 1"/>
     </eAnnotations>
     <eAnnotations source="gmf.diagram"/>
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+      <details key="color" value="200,200,255"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="entity" upperBound="-1"
         eType="#//Entity" containment="true">
@@ -53,8 +52,8 @@
       <details key="constraints" value="R02_CRUDIncompatible R03_IndiceDetalle R05_NoSelfReference R08_UniqueIndexPerEntity"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-      <details key="R02_CRUDIncompatible" value="pageconfig->exists(pc | pc.pageType = PageType::CRUD) implies pageconfig->forAll(pc&#xA;&#x9;&#x9;&#x9;&#x9;| pc.pageType = PageType::CRUD)"/>
-      <details key="R03_IndiceDetalle" value="(pageconfig->exists(pc |&#xA;&#x9;&#x9;&#x9;&#x9;pc.pageType = PageType::Index or pc.pageType = PageType::ExtendedIndex) implies pageconfig->exists(pc |&#xA;&#x9;&#x9;&#x9;&#x9;pc.pageType = PageType::Detail or pc.pageType = PageType::IndexDetail)) and (pageconfig->exists(pc |&#xA;&#x9;&#x9;&#x9;&#x9;pc.pageType = PageType::Detail or pc.pageType = PageType::IndexDetail) implies pageconfig->exists(pc |&#xA;&#x9;&#x9;&#x9;&#x9;pc.pageType = PageType::Index or pc.pageType = PageType::ExtendedIndex))"/>
+      <details key="R02_CRUDIncompatible" value="pageconfig->exists(pc | pc.pageType = PageType::CRUD) implies pageconfig->forAll(pc&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;| pc.pageType = PageType::CRUD)"/>
+      <details key="R03_IndiceDetalle" value="(pageconfig->exists(pc |&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;pc.pageType = PageType::Index or pc.pageType = PageType::ExtendedIndex) implies pageconfig->exists(pc |&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;pc.pageType = PageType::Detail or pc.pageType = PageType::IndexDetail)) and (pageconfig->exists(pc |&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;pc.pageType = PageType::Detail or pc.pageType = PageType::IndexDetail) implies pageconfig->exists(pc |&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;pc.pageType = PageType::Index or pc.pageType = PageType::ExtendedIndex))"/>
       <details key="R05_NoSelfReference" value="reference->forAll(ref | ref.name &lt;> name)"/>
       <details key="R08_UniqueIndexPerEntity" value="pageconfig->select(pc | pc.pageType = PageType::Index)->size() &lt;= 1"/>
     </eAnnotations>
@@ -120,7 +119,7 @@
       <details key="constraints" value="R09_ValidIndexAttributes"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-      <details key="R09_ValidIndexAttributes" value="attribute &lt;> null implies let parent : dataWeb::Entity =&#xA;&#x9;&#x9;&#x9;self.oclContainer().oclAsType(dataWeb::Entity)&#xA;&#x9;in parent.attribute->includes(self.attribute)"/>
+      <details key="R09_ValidIndexAttributes" value="attribute &lt;> null implies let parent : dataWeb::Entity =&#xD;&#xA;&#x9;&#x9;&#x9;self.oclContainer().oclAsType(dataWeb::Entity)&#xD;&#xA;&#x9;in parent.attribute->includes(self.attribute)"/>
     </eAnnotations>
     <eAnnotations source="gmf.node">
       <details key="label" value="pageType"/>
@@ -161,7 +160,7 @@
       <details key="constraints" value="R07_ResponsesDefined"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-      <details key="R07_ResponsesDefined" value="survey.question->forAll(q |&#xA;&#x9;&#x9;&#x9;(q.oclIsKindOf(TrueFalseQuestion) implies q.oclAsType(TrueFalseQuestion).correctAnswer = true or q.oclAsType(TrueFalseQuestion).correctAnswer = false) and (q.oclIsKindOf(MCQuestion) implies q.oclAsType(MCQuestion).option->size() > 0))"/>
+      <details key="R07_ResponsesDefined" value="survey.question->forAll(q |&#xD;&#xA;&#x9;&#x9;&#x9;(q.oclIsKindOf(TrueFalseQuestion) implies q.oclAsType(TrueFalseQuestion).correctAnswer = true or q.oclAsType(TrueFalseQuestion).correctAnswer = false) and (q.oclIsKindOf(MCQuestion) implies q.oclAsType(MCQuestion).option->size() > 0))"/>
     </eAnnotations>
     <eAnnotations source="gmf.node">
       <details key="label" value="title"/>
@@ -185,7 +184,7 @@
       <details key="constraints" value="R12_AdminMustSeeSurvey"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-      <details key="R12_AdminMustSeeSurvey" value="self.permissions = dataWeb::PermissionType::ADMIN implies self.accessiblePages->exists(p :&#xA;&#x9;&#x9;&#x9;Page | p.oclIsKindOf(dataWeb::SurveyPage))"/>
+      <details key="R12_AdminMustSeeSurvey" value="self.permissions = dataWeb::PermissionType::ADMIN implies self.accessiblePages->exists(p :&#xD;&#xA;&#x9;&#x9;&#x9;Page | p.oclIsKindOf(dataWeb::SurveyPage))"/>
     </eAnnotations>
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
@@ -207,14 +206,14 @@
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         volatile="true" transient="true" derived="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-        <details key="derivation" value="self.accessiblePages->select(p | p.oclIsKindOf(EntityPage))->collect(p |&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;p.oclAsType(EntityPage).entity)->asSet()->size()"/>
+        <details key="derivation" value="self.accessiblePages->select(p | p.oclIsKindOf(EntityPage))->collect(p |&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;p.oclAsType(EntityPage).entity)->asSet()->size()"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="paginasMediasAccesibles"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         volatile="true" transient="true" derived="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-        <details key="derivation" value="let totalPaginas = self.accessiblePages->size() , app = dataWeb::Application.allInstances()->any(a |&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;a.role->includes(self)) , totalRoles = app.role->size()&#xA;&#x9;in totalPaginas / totalRoles"/>
+        <details key="derivation" value="let totalPaginas = self.accessiblePages->size() , app = dataWeb::Application.allInstances()->any(a |&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;a.role->includes(self)) , totalRoles = app.role->size()&#xD;&#xA;&#x9;in totalPaginas / totalRoles"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>

@@ -1488,11 +1488,11 @@ public class DataWebPackageImpl extends EPackageImpl implements DataWebPackage {
 		createGmfAnnotations();
 		// gmf.diagram
 		createGmf_1Annotations();
+		// gmf.node
+		createGmf_2Annotations();
 		// http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot
 		createPivotAnnotations();
 		// gmf.compartment
-		createGmf_2Annotations();
-		// gmf.node
 		createGmf_3Annotations();
 		// gmf.link
 		createGmf_4Annotations();
@@ -1597,7 +1597,7 @@ public class DataWebPackageImpl extends EPackageImpl implements DataWebPackage {
 		  (getApplication__R04_SocialRSS__DiagnosticChain_Map(),
 		   source,
 		   new String[] {
-			   "body", "socialcontent->select(sc |\n\t\t\t\tsc.type = SocialType::Twitter or sc.type = SocialType::Facebook)->size() >= 1 and socialcontent->select(sc |\n\t\t\t\tsc.type = SocialType::RSS)->size() >= 1"
+			   "body", "socialcontent->select(sc |\r\n\t\t\t\tsc.type = SocialType::Twitter or sc.type = SocialType::Facebook)->size() >= 1 and socialcontent->select(sc |\r\n\t\t\t\tsc.type = SocialType::RSS)->size() >= 1"
 		   });
 		addAnnotation
 		  (getApplication__R06b_MinSurvey__DiagnosticChain_Map(),
@@ -1621,13 +1621,13 @@ public class DataWebPackageImpl extends EPackageImpl implements DataWebPackage {
 		  (getEntity__R03_IndiceDetalle__DiagnosticChain_Map(),
 		   source,
 		   new String[] {
-			   "body", "(pageconfig->exists(pc |\n\t\t\t\tpc.pageType = PageType::Index or pc.pageType = PageType::ExtendedIndex) implies pageconfig->exists(pc |\n\t\t\t\tpc.pageType = PageType::Detail or pc.pageType = PageType::IndexDetail)) and (pageconfig->exists(pc |\n\t\t\t\tpc.pageType = PageType::Detail or pc.pageType = PageType::IndexDetail) implies pageconfig->exists(pc |\n\t\t\t\tpc.pageType = PageType::Index or pc.pageType = PageType::ExtendedIndex))"
+			   "body", "(pageconfig->exists(pc |\r\n\t\t\t\tpc.pageType = PageType::Index or pc.pageType = PageType::ExtendedIndex) implies pageconfig->exists(pc |\r\n\t\t\t\tpc.pageType = PageType::Detail or pc.pageType = PageType::IndexDetail)) and (pageconfig->exists(pc |\r\n\t\t\t\tpc.pageType = PageType::Detail or pc.pageType = PageType::IndexDetail) implies pageconfig->exists(pc |\r\n\t\t\t\tpc.pageType = PageType::Index or pc.pageType = PageType::ExtendedIndex))"
 		   });
 		addAnnotation
 		  (getEntity__R02_CRUDIncompatible__DiagnosticChain_Map(),
 		   source,
 		   new String[] {
-			   "body", "pageconfig->exists(pc | pc.pageType = PageType::CRUD) implies pageconfig->forAll(pc\n\t\t\t\t| pc.pageType = PageType::CRUD)"
+			   "body", "pageconfig->exists(pc | pc.pageType = PageType::CRUD) implies pageconfig->forAll(pc\r\n\t\t\t\t| pc.pageType = PageType::CRUD)"
 		   });
 		addAnnotation
 		  (getEntity__R05_NoSelfReference__DiagnosticChain_Map(),
@@ -1639,19 +1639,19 @@ public class DataWebPackageImpl extends EPackageImpl implements DataWebPackage {
 		  (getPageConfig__R09_ValidIndexAttributes__DiagnosticChain_Map(),
 		   source,
 		   new String[] {
-			   "body", "attribute <> null implies let parent : dataWeb::Entity =\n\t\t\tself.oclContainer().oclAsType(dataWeb::Entity)\n\tin parent.attribute->includes(self.attribute)"
+			   "body", "attribute <> null implies let parent : dataWeb::Entity =\r\n\t\t\tself.oclContainer().oclAsType(dataWeb::Entity)\r\n\tin parent.attribute->includes(self.attribute)"
 		   });
 		addAnnotation
 		  (getSurveyPage__R07_ResponsesDefined__DiagnosticChain_Map(),
 		   source,
 		   new String[] {
-			   "body", "survey.question->forAll(q |\n\t\t\t(q.oclIsKindOf(TrueFalseQuestion) implies q.oclAsType(TrueFalseQuestion).correctAnswer = true or q.oclAsType(TrueFalseQuestion).correctAnswer = false) and (q.oclIsKindOf(MCQuestion) implies q.oclAsType(MCQuestion).option->size() > 0))"
+			   "body", "survey.question->forAll(q |\r\n\t\t\t(q.oclIsKindOf(TrueFalseQuestion) implies q.oclAsType(TrueFalseQuestion).correctAnswer = true or q.oclAsType(TrueFalseQuestion).correctAnswer = false) and (q.oclIsKindOf(MCQuestion) implies q.oclAsType(MCQuestion).option->size() > 0))"
 		   });
 		addAnnotation
 		  (getRole__R12_AdminMustSeeSurvey__DiagnosticChain_Map(),
 		   source,
 		   new String[] {
-			   "body", "self.permissions = dataWeb::PermissionType::ADMIN implies self.accessiblePages->exists(p :\n\t\t\tPage | p.oclIsKindOf(dataWeb::SurveyPage))"
+			   "body", "self.permissions = dataWeb::PermissionType::ADMIN implies self.accessiblePages->exists(p :\r\n\t\t\tPage | p.oclIsKindOf(dataWeb::SurveyPage))"
 		   });
 		addAnnotation
 		  (getMCQuestion__R10_MandatoryMCQuestionsHaveOptions__DiagnosticChain_Map(),
@@ -1668,83 +1668,20 @@ public class DataWebPackageImpl extends EPackageImpl implements DataWebPackage {
 	}
 
 	/**
-	 * Initializes the annotations for <b>gmf.compartment</b>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void createGmf_2Annotations() {
-		String source = "gmf.compartment";
-		addAnnotation
-		  (getApplication_Entity(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getApplication_Page(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getApplication_Socialcontent(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getApplication_Role(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getEntity_Attribute(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getEntity_Reference(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getEntity_Pageconfig(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getPage_Link(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getPageConfig_Pagination(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getSurveyPage_Survey(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getSurvey_Question(),
-		   source,
-		   new String[] {
-		   });
-		addAnnotation
-		  (getMCQuestion_Option(),
-		   source,
-		   new String[] {
-		   });
-	}
-
-	/**
 	 * Initializes the annotations for <b>gmf.node</b>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void createGmf_3Annotations() {
+	protected void createGmf_2Annotations() {
 		String source = "gmf.node";
+		addAnnotation
+		  (applicationEClass,
+		   source,
+		   new String[] {
+			   "label", "name",
+			   "color", "200,200,255"
+		   });
 		addAnnotation
 		  (entityEClass,
 		   source,
@@ -1905,6 +1842,76 @@ public class DataWebPackageImpl extends EPackageImpl implements DataWebPackage {
 		   new String[] {
 			   "label", "name",
 			   "color", "220,220,220"
+		   });
+	}
+
+	/**
+	 * Initializes the annotations for <b>gmf.compartment</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createGmf_3Annotations() {
+		String source = "gmf.compartment";
+		addAnnotation
+		  (getApplication_Entity(),
+		   source,
+		   new String[] {
+		   });
+		addAnnotation
+		  (getApplication_Page(),
+		   source,
+		   new String[] {
+		   });
+		addAnnotation
+		  (getApplication_Socialcontent(),
+		   source,
+		   new String[] {
+		   });
+		addAnnotation
+		  (getApplication_Role(),
+		   source,
+		   new String[] {
+		   });
+		addAnnotation
+		  (getEntity_Attribute(),
+		   source,
+		   new String[] {
+		   });
+		addAnnotation
+		  (getEntity_Reference(),
+		   source,
+		   new String[] {
+		   });
+		addAnnotation
+		  (getEntity_Pageconfig(),
+		   source,
+		   new String[] {
+		   });
+		addAnnotation
+		  (getPage_Link(),
+		   source,
+		   new String[] {
+		   });
+		addAnnotation
+		  (getPageConfig_Pagination(),
+		   source,
+		   new String[] {
+		   });
+		addAnnotation
+		  (getSurveyPage_Survey(),
+		   source,
+		   new String[] {
+		   });
+		addAnnotation
+		  (getSurvey_Question(),
+		   source,
+		   new String[] {
+		   });
+		addAnnotation
+		  (getMCQuestion_Option(),
+		   source,
+		   new String[] {
 		   });
 	}
 

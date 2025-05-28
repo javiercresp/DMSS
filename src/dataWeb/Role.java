@@ -137,7 +137,7 @@ public interface Role extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self.permissions = dataWeb::PermissionType::ADMIN implies self.accessiblePages-&gt;exists(p :\n\t\t\tPage | p.oclIsKindOf(dataWeb::SurveyPage))'"
+	 * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self.permissions = dataWeb::PermissionType::ADMIN implies self.accessiblePages-&gt;exists(p :\r\n\t\t\tPage | p.oclIsKindOf(dataWeb::SurveyPage))'"
 	 * @generated
 	 */
 	boolean R12_AdminMustSeeSurvey(DiagnosticChain diagnostics, Map<Object, Object> context);

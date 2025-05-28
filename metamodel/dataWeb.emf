@@ -1,7 +1,6 @@
 @"http://www.eclipse.org/OCL/Import"(ecore="http://www.eclipse.org/emf/2002/Ecore")
 @Ecore(invocationDelegates="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", settingDelegates="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", validationDelegates="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot")
 @gmf
-@GenModel(operationReflection="true", tableProviders="true", complianceLevel="6.0")
 @namespace(uri="http://www.example.org/dataWeb", prefix="dataWeb")
 @GenModel(operationReflection="true",tableProviders="true",complianceLevel="6.0") 
 package dataWeb;
@@ -11,6 +10,7 @@ package dataWeb;
 				sc.type = SocialType::Twitter or sc.type = SocialType::Facebook)->size() >= 1 and socialcontent->select(sc |
 				sc.type = SocialType::RSS)->size() >= 1", R06b_MinSurvey="page->select(p | p.oclIsKindOf(SurveyPage))->size() >= 1")
 @gmf.diagram
+@gmf.node(label="name", color="200,200,255")
 class Application {
 	attr String name;
 

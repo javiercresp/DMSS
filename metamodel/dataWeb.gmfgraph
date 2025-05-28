@@ -5,6 +5,26 @@
     <figures xsi:type="gmfgraph:PolylineDecoration" name="PageConfigAttributeFigureTargetDecoration"/>
     <figures xsi:type="gmfgraph:PolylineDecoration" name="EntityPageEntityFigureTargetDecoration"/>
     <figures xsi:type="gmfgraph:PolylineDecoration" name="RoleAccessiblePagesFigureTargetDecoration"/>
+    <descriptors name="ApplicationFigure">
+      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="ApplicationFigure">
+        <backgroundColor xsi:type="gmfgraph:RGBColor" red="200" green="200" blue="255"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="ApplicationLabelFigure" text="Application">
+          <maximumSize dx="10000" dy="50"/>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="ApplicationEntityCompartmentFigure" outline="false"/>
+        <children xsi:type="gmfgraph:Rectangle" name="ApplicationPageCompartmentFigure" outline="false"/>
+        <children xsi:type="gmfgraph:Rectangle" name="ApplicationSocialcontentCompartmentFigure" outline="false"/>
+        <children xsi:type="gmfgraph:Rectangle" name="ApplicationRoleCompartmentFigure" outline="false"/>
+      </actualFigure>
+      <accessors accessor="getFigureApplicationLabelFigure" figure="//@figures.0/@descriptors.0/@actualFigure/@children.0"/>
+      <accessors accessor="getApplicationEntityCompartmentFigure" figure="//@figures.0/@descriptors.0/@actualFigure/@children.1"/>
+      <accessors accessor="getApplicationPageCompartmentFigure" figure="//@figures.0/@descriptors.0/@actualFigure/@children.2"/>
+      <accessors accessor="getApplicationSocialcontentCompartmentFigure" figure="//@figures.0/@descriptors.0/@actualFigure/@children.3"/>
+      <accessors accessor="getApplicationRoleCompartmentFigure" figure="//@figures.0/@descriptors.0/@actualFigure/@children.4"/>
+    </descriptors>
     <descriptors name="EntityFigure">
       <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="EntityFigure">
         <backgroundColor xsi:type="gmfgraph:RGBColor" red="200" green="200" blue="255"/>
@@ -18,10 +38,10 @@
         <children xsi:type="gmfgraph:Rectangle" name="EntityReferenceCompartmentFigure" outline="false"/>
         <children xsi:type="gmfgraph:Rectangle" name="EntityPageconfigCompartmentFigure" outline="false"/>
       </actualFigure>
-      <accessors accessor="getFigureEntityLabelFigure" figure="//@figures.0/@descriptors.0/@actualFigure/@children.0"/>
-      <accessors accessor="getEntityAttributeCompartmentFigure" figure="//@figures.0/@descriptors.0/@actualFigure/@children.1"/>
-      <accessors accessor="getEntityReferenceCompartmentFigure" figure="//@figures.0/@descriptors.0/@actualFigure/@children.2"/>
-      <accessors accessor="getEntityPageconfigCompartmentFigure" figure="//@figures.0/@descriptors.0/@actualFigure/@children.3"/>
+      <accessors accessor="getFigureEntityLabelFigure" figure="//@figures.0/@descriptors.1/@actualFigure/@children.0"/>
+      <accessors accessor="getEntityAttributeCompartmentFigure" figure="//@figures.0/@descriptors.1/@actualFigure/@children.1"/>
+      <accessors accessor="getEntityReferenceCompartmentFigure" figure="//@figures.0/@descriptors.1/@actualFigure/@children.2"/>
+      <accessors accessor="getEntityPageconfigCompartmentFigure" figure="//@figures.0/@descriptors.1/@actualFigure/@children.3"/>
     </descriptors>
     <descriptors name="ReferenceFigure">
       <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="ReferenceFigure">
@@ -31,7 +51,7 @@
         </border>
         <children xsi:type="gmfgraph:Label" name="ReferenceLabelFigure" text="Reference"/>
       </actualFigure>
-      <accessors accessor="getFigureReferenceLabelFigure" figure="//@figures.0/@descriptors.1/@actualFigure/@children.0"/>
+      <accessors accessor="getFigureReferenceLabelFigure" figure="//@figures.0/@descriptors.2/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors name="AttributeFigure">
       <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="AttributeFigure">
@@ -41,7 +61,7 @@
         </border>
         <children xsi:type="gmfgraph:Label" name="AttributeLabelFigure" text="Attribute"/>
       </actualFigure>
-      <accessors accessor="getFigureAttributeLabelFigure" figure="//@figures.0/@descriptors.2/@actualFigure/@children.0"/>
+      <accessors accessor="getFigureAttributeLabelFigure" figure="//@figures.0/@descriptors.3/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors name="PageConfigFigure">
       <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="PageConfigFigure">
@@ -54,8 +74,8 @@
         </children>
         <children xsi:type="gmfgraph:Rectangle" name="PageConfigPaginationCompartmentFigure" outline="false"/>
       </actualFigure>
-      <accessors accessor="getFigurePageConfigLabelFigure" figure="//@figures.0/@descriptors.3/@actualFigure/@children.0"/>
-      <accessors accessor="getPageConfigPaginationCompartmentFigure" figure="//@figures.0/@descriptors.3/@actualFigure/@children.1"/>
+      <accessors accessor="getFigurePageConfigLabelFigure" figure="//@figures.0/@descriptors.4/@actualFigure/@children.0"/>
+      <accessors accessor="getPageConfigPaginationCompartmentFigure" figure="//@figures.0/@descriptors.4/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors name="SurveyPageFigure">
       <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="SurveyPageFigure">
@@ -69,9 +89,9 @@
         <children xsi:type="gmfgraph:Rectangle" name="SurveyPageLinkCompartmentFigure" outline="false"/>
         <children xsi:type="gmfgraph:Rectangle" name="SurveyPageSurveyCompartmentFigure" outline="false"/>
       </actualFigure>
-      <accessors accessor="getFigureSurveyPageLabelFigure" figure="//@figures.0/@descriptors.4/@actualFigure/@children.0"/>
-      <accessors accessor="getSurveyPageLinkCompartmentFigure" figure="//@figures.0/@descriptors.4/@actualFigure/@children.1"/>
-      <accessors accessor="getSurveyPageSurveyCompartmentFigure" figure="//@figures.0/@descriptors.4/@actualFigure/@children.2"/>
+      <accessors accessor="getFigureSurveyPageLabelFigure" figure="//@figures.0/@descriptors.5/@actualFigure/@children.0"/>
+      <accessors accessor="getSurveyPageLinkCompartmentFigure" figure="//@figures.0/@descriptors.5/@actualFigure/@children.1"/>
+      <accessors accessor="getSurveyPageSurveyCompartmentFigure" figure="//@figures.0/@descriptors.5/@actualFigure/@children.2"/>
     </descriptors>
     <descriptors name="SocialContentFigure">
       <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="SocialContentFigure">
@@ -81,7 +101,7 @@
         </border>
         <children xsi:type="gmfgraph:Label" name="SocialContentLabelFigure" text="SocialContent"/>
       </actualFigure>
-      <accessors accessor="getFigureSocialContentLabelFigure" figure="//@figures.0/@descriptors.5/@actualFigure/@children.0"/>
+      <accessors accessor="getFigureSocialContentLabelFigure" figure="//@figures.0/@descriptors.6/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors name="RoleFigure">
       <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="RoleFigure">
@@ -91,7 +111,7 @@
         </border>
         <children xsi:type="gmfgraph:Label" name="RoleLabelFigure" text="Role"/>
       </actualFigure>
-      <accessors accessor="getFigureRoleLabelFigure" figure="//@figures.0/@descriptors.6/@actualFigure/@children.0"/>
+      <accessors accessor="getFigureRoleLabelFigure" figure="//@figures.0/@descriptors.7/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors name="LinkFigure">
       <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="LinkFigure">
@@ -101,7 +121,7 @@
         </border>
         <children xsi:type="gmfgraph:Label" name="LinkLabelFigure" text="Link"/>
       </actualFigure>
-      <accessors accessor="getFigureLinkLabelFigure" figure="//@figures.0/@descriptors.7/@actualFigure/@children.0"/>
+      <accessors accessor="getFigureLinkLabelFigure" figure="//@figures.0/@descriptors.8/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors name="PaginationFigure">
       <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="PaginationFigure">
@@ -111,7 +131,7 @@
         </border>
         <children xsi:type="gmfgraph:Label" name="PaginationLabelFigure" text="Pagination"/>
       </actualFigure>
-      <accessors accessor="getFigurePaginationLabelFigure" figure="//@figures.0/@descriptors.8/@actualFigure/@children.0"/>
+      <accessors accessor="getFigurePaginationLabelFigure" figure="//@figures.0/@descriptors.9/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors name="SurveyFigure">
       <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="SurveyFigure">
@@ -124,8 +144,8 @@
         </children>
         <children xsi:type="gmfgraph:Rectangle" name="SurveyQuestionCompartmentFigure" outline="false"/>
       </actualFigure>
-      <accessors accessor="getFigureSurveyLabelFigure" figure="//@figures.0/@descriptors.9/@actualFigure/@children.0"/>
-      <accessors accessor="getSurveyQuestionCompartmentFigure" figure="//@figures.0/@descriptors.9/@actualFigure/@children.1"/>
+      <accessors accessor="getFigureSurveyLabelFigure" figure="//@figures.0/@descriptors.10/@actualFigure/@children.0"/>
+      <accessors accessor="getSurveyQuestionCompartmentFigure" figure="//@figures.0/@descriptors.10/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors name="MCQuestionFigure">
       <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="MCQuestionFigure">
@@ -138,8 +158,8 @@
         </children>
         <children xsi:type="gmfgraph:Rectangle" name="MCQuestionOptionCompartmentFigure" outline="false"/>
       </actualFigure>
-      <accessors accessor="getFigureMCQuestionLabelFigure" figure="//@figures.0/@descriptors.10/@actualFigure/@children.0"/>
-      <accessors accessor="getMCQuestionOptionCompartmentFigure" figure="//@figures.0/@descriptors.10/@actualFigure/@children.1"/>
+      <accessors accessor="getFigureMCQuestionLabelFigure" figure="//@figures.0/@descriptors.11/@actualFigure/@children.0"/>
+      <accessors accessor="getMCQuestionOptionCompartmentFigure" figure="//@figures.0/@descriptors.11/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors name="TrueFalseQuestionFigure">
       <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="TrueFalseQuestionFigure">
@@ -149,7 +169,7 @@
         </border>
         <children xsi:type="gmfgraph:Label" name="TrueFalseQuestionLabelFigure" text="TrueFalseQuestion"/>
       </actualFigure>
-      <accessors accessor="getFigureTrueFalseQuestionLabelFigure" figure="//@figures.0/@descriptors.11/@actualFigure/@children.0"/>
+      <accessors accessor="getFigureTrueFalseQuestionLabelFigure" figure="//@figures.0/@descriptors.12/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors name="ShortQuestionFigure">
       <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="ShortQuestionFigure">
@@ -159,7 +179,7 @@
         </border>
         <children xsi:type="gmfgraph:Label" name="ShortQuestionLabelFigure" text="ShortQuestion"/>
       </actualFigure>
-      <accessors accessor="getFigureShortQuestionLabelFigure" figure="//@figures.0/@descriptors.12/@actualFigure/@children.0"/>
+      <accessors accessor="getFigureShortQuestionLabelFigure" figure="//@figures.0/@descriptors.13/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors name="AnswerOptionFigure">
       <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="AnswerOptionFigure">
@@ -169,7 +189,7 @@
         </border>
         <children xsi:type="gmfgraph:Label" name="AnswerOptionLabelFigure" text="AnswerOption"/>
       </actualFigure>
-      <accessors accessor="getFigureAnswerOptionLabelFigure" figure="//@figures.0/@descriptors.13/@actualFigure/@children.0"/>
+      <accessors accessor="getFigureAnswerOptionLabelFigure" figure="//@figures.0/@descriptors.14/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors name="PageSocialcontentFigure">
       <actualFigure xsi:type="gmfgraph:PolylineConnection" name="PageSocialcontentFigure" targetDecoration="//@figures.0/@figures.0">
@@ -204,6 +224,7 @@
       <actualFigure xsi:type="gmfgraph:Label" name="RoleAccessiblePagesExternalLabel"/>
     </descriptors>
   </figures>
+  <nodes name="Application" figure="ApplicationFigure"/>
   <nodes name="Entity" figure="EntityFigure"/>
   <nodes name="Reference" figure="ReferenceFigure"/>
   <nodes name="Attribute" figure="AttributeFigure"/>
@@ -222,28 +243,33 @@
   <connections name="PageConfigAttribute" figure="PageConfigAttributeFigure"/>
   <connections name="EntityPageEntity" figure="EntityPageEntityFigure"/>
   <connections name="RoleAccessiblePages" figure="RoleAccessiblePagesFigure"/>
-  <compartments name="EntityAttributeCompartment" figure="EntityFigure" collapsible="true" accessor="//@figures.0/@descriptors.0/@accessors.1"/>
-  <compartments name="EntityReferenceCompartment" figure="EntityFigure" collapsible="true" accessor="//@figures.0/@descriptors.0/@accessors.2"/>
-  <compartments name="EntityPageconfigCompartment" figure="EntityFigure" collapsible="true" accessor="//@figures.0/@descriptors.0/@accessors.3"/>
-  <compartments name="PageConfigPaginationCompartment" figure="PageConfigFigure" collapsible="true" accessor="//@figures.0/@descriptors.3/@accessors.1"/>
-  <compartments name="SurveyPageLinkCompartment" figure="SurveyPageFigure" collapsible="true" accessor="//@figures.0/@descriptors.4/@accessors.1"/>
-  <compartments name="SurveyPageSurveyCompartment" figure="SurveyPageFigure" collapsible="true" accessor="//@figures.0/@descriptors.4/@accessors.2"/>
-  <compartments name="SurveyQuestionCompartment" figure="SurveyFigure" collapsible="true" accessor="//@figures.0/@descriptors.9/@accessors.1"/>
-  <compartments name="MCQuestionOptionCompartment" figure="MCQuestionFigure" collapsible="true" accessor="//@figures.0/@descriptors.10/@accessors.1"/>
-  <labels name="EntityLabel" figure="EntityFigure" accessor="//@figures.0/@descriptors.0/@accessors.0"/>
-  <labels name="ReferenceLabel" figure="ReferenceFigure" accessor="//@figures.0/@descriptors.1/@accessors.0"/>
-  <labels name="AttributeLabel" figure="AttributeFigure" accessor="//@figures.0/@descriptors.2/@accessors.0"/>
-  <labels name="PageConfigLabel" figure="PageConfigFigure" accessor="//@figures.0/@descriptors.3/@accessors.0"/>
-  <labels name="SurveyPageLabel" figure="SurveyPageFigure" accessor="//@figures.0/@descriptors.4/@accessors.0"/>
-  <labels name="SocialContentLabel" figure="SocialContentFigure" accessor="//@figures.0/@descriptors.5/@accessors.0"/>
-  <labels name="RoleLabel" figure="RoleFigure" accessor="//@figures.0/@descriptors.6/@accessors.0"/>
-  <labels name="LinkLabel" figure="LinkFigure" accessor="//@figures.0/@descriptors.7/@accessors.0"/>
-  <labels name="PaginationLabel" figure="PaginationFigure" accessor="//@figures.0/@descriptors.8/@accessors.0"/>
-  <labels name="SurveyLabel" figure="SurveyFigure" accessor="//@figures.0/@descriptors.9/@accessors.0"/>
-  <labels name="MCQuestionLabel" figure="MCQuestionFigure" accessor="//@figures.0/@descriptors.10/@accessors.0"/>
-  <labels name="TrueFalseQuestionLabel" figure="TrueFalseQuestionFigure" accessor="//@figures.0/@descriptors.11/@accessors.0"/>
-  <labels name="ShortQuestionLabel" figure="ShortQuestionFigure" accessor="//@figures.0/@descriptors.12/@accessors.0"/>
-  <labels name="AnswerOptionLabel" figure="AnswerOptionFigure" accessor="//@figures.0/@descriptors.13/@accessors.0"/>
+  <compartments name="ApplicationEntityCompartment" figure="ApplicationFigure" collapsible="true" accessor="//@figures.0/@descriptors.0/@accessors.1"/>
+  <compartments name="ApplicationPageCompartment" figure="ApplicationFigure" collapsible="true" accessor="//@figures.0/@descriptors.0/@accessors.2"/>
+  <compartments name="ApplicationSocialcontentCompartment" figure="ApplicationFigure" collapsible="true" accessor="//@figures.0/@descriptors.0/@accessors.3"/>
+  <compartments name="ApplicationRoleCompartment" figure="ApplicationFigure" collapsible="true" accessor="//@figures.0/@descriptors.0/@accessors.4"/>
+  <compartments name="EntityAttributeCompartment" figure="EntityFigure" collapsible="true" accessor="//@figures.0/@descriptors.1/@accessors.1"/>
+  <compartments name="EntityReferenceCompartment" figure="EntityFigure" collapsible="true" accessor="//@figures.0/@descriptors.1/@accessors.2"/>
+  <compartments name="EntityPageconfigCompartment" figure="EntityFigure" collapsible="true" accessor="//@figures.0/@descriptors.1/@accessors.3"/>
+  <compartments name="PageConfigPaginationCompartment" figure="PageConfigFigure" collapsible="true" accessor="//@figures.0/@descriptors.4/@accessors.1"/>
+  <compartments name="SurveyPageLinkCompartment" figure="SurveyPageFigure" collapsible="true" accessor="//@figures.0/@descriptors.5/@accessors.1"/>
+  <compartments name="SurveyPageSurveyCompartment" figure="SurveyPageFigure" collapsible="true" accessor="//@figures.0/@descriptors.5/@accessors.2"/>
+  <compartments name="SurveyQuestionCompartment" figure="SurveyFigure" collapsible="true" accessor="//@figures.0/@descriptors.10/@accessors.1"/>
+  <compartments name="MCQuestionOptionCompartment" figure="MCQuestionFigure" collapsible="true" accessor="//@figures.0/@descriptors.11/@accessors.1"/>
+  <labels name="ApplicationLabel" figure="ApplicationFigure" accessor="//@figures.0/@descriptors.0/@accessors.0"/>
+  <labels name="EntityLabel" figure="EntityFigure" accessor="//@figures.0/@descriptors.1/@accessors.0"/>
+  <labels name="ReferenceLabel" figure="ReferenceFigure" accessor="//@figures.0/@descriptors.2/@accessors.0"/>
+  <labels name="AttributeLabel" figure="AttributeFigure" accessor="//@figures.0/@descriptors.3/@accessors.0"/>
+  <labels name="PageConfigLabel" figure="PageConfigFigure" accessor="//@figures.0/@descriptors.4/@accessors.0"/>
+  <labels name="SurveyPageLabel" figure="SurveyPageFigure" accessor="//@figures.0/@descriptors.5/@accessors.0"/>
+  <labels name="SocialContentLabel" figure="SocialContentFigure" accessor="//@figures.0/@descriptors.6/@accessors.0"/>
+  <labels name="RoleLabel" figure="RoleFigure" accessor="//@figures.0/@descriptors.7/@accessors.0"/>
+  <labels name="LinkLabel" figure="LinkFigure" accessor="//@figures.0/@descriptors.8/@accessors.0"/>
+  <labels name="PaginationLabel" figure="PaginationFigure" accessor="//@figures.0/@descriptors.9/@accessors.0"/>
+  <labels name="SurveyLabel" figure="SurveyFigure" accessor="//@figures.0/@descriptors.10/@accessors.0"/>
+  <labels name="MCQuestionLabel" figure="MCQuestionFigure" accessor="//@figures.0/@descriptors.11/@accessors.0"/>
+  <labels name="TrueFalseQuestionLabel" figure="TrueFalseQuestionFigure" accessor="//@figures.0/@descriptors.12/@accessors.0"/>
+  <labels name="ShortQuestionLabel" figure="ShortQuestionFigure" accessor="//@figures.0/@descriptors.13/@accessors.0"/>
+  <labels name="AnswerOptionLabel" figure="AnswerOptionFigure" accessor="//@figures.0/@descriptors.14/@accessors.0"/>
   <labels name="PageSocialcontentExternalLabel" figure="PageSocialcontentExternalLabelFigure" elementIcon="false"/>
   <labels name="PageConfigAttributeExternalLabel" figure="PageConfigAttributeExternalLabelFigure" elementIcon="false"/>
   <labels name="EntityPageEntityExternalLabel" figure="EntityPageEntityExternalLabelFigure" elementIcon="false"/>

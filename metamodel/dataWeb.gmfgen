@@ -381,6 +381,7 @@
     <palette>
       <groups title="Objects" collapse="true">
         <entries xsi:type="gmfgen:ToolEntry" title="AnswerOption" description="Create new AnswerOption" genNodes="//@diagram/@childNodes.3"/>
+        <entries xsi:type="gmfgen:ToolEntry" title="Application" description="Create new Application"/>
         <entries xsi:type="gmfgen:ToolEntry" title="Attribute" description="Create new Attribute" genNodes="//@diagram/@childNodes.6"/>
         <entries xsi:type="gmfgen:ToolEntry" title="Entity" description="Create new Entity" genNodes="//@diagram/@topLevelNodes.1"/>
         <entries xsi:type="gmfgen:ToolEntry" title="Link" description="Create new Link" genNodes="//@diagram/@childNodes.0"/>

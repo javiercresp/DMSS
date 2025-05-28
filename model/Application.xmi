@@ -94,9 +94,9 @@
       id="adminPanel"
       title="Panel de control">
     <link description="Gestión de Libros"
-        externalURL="Libro_Gestion.html"/>
+        externalURL="Administrador/Libro_index.html"/>
     <link description="Gestión de Clientes"
-        externalURL="Cliente_Gestion.html"/>
+        externalURL="Administrador/Cliente_index.html"/>
     <survey
         representation="Bar">
       <question

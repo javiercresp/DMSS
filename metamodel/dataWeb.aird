@@ -3,10 +3,6 @@
   <viewpoint:DAnalysis uid="_AEzc8B7VEfCUz8HKrNbf5Q" selectedViews="_Aa7d8B7VEfCUz8HKrNbf5Q" version="15.2.0.202303281325">
     <semanticResources>dataWeb.ecore</semanticResources>
     <semanticResources>dataWeb.emf</semanticResources>
-    <semanticResources>dataWeb.gmfgraph</semanticResources>
-    <semanticResources>dataWeb.gmfmap</semanticResources>
-    <semanticResources>dataWeb.gmftool</semanticResources>
-    <semanticResources>dataWeb.gmfgen</semanticResources>
     <semanticResources>platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel</semanticResources>
     <semanticResources>platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel</semanticResources>
     <semanticResources>platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore</semanticResources>
@@ -14,6 +10,10 @@
     <semanticResources>dataWeb.trace</semanticResources>
     <semanticResources>../model/Application.xmi</semanticResources>
     <semanticResources>dataWeb.genmodel</semanticResources>
+    <semanticResources>dataWeb.gmfgraph</semanticResources>
+    <semanticResources>dataWeb.gmfmap</semanticResources>
+    <semanticResources>dataWeb.gmftool</semanticResources>
+    <semanticResources>dataWeb.gmfgen</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_Aa7d8B7VEfCUz8HKrNbf5Q">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_Acwp8B7VEfCUz8HKrNbf5Q" name="dataWeb" repPath="#_AcK0EB7VEfCUz8HKrNbf5Q" changeId="1748193436378">
