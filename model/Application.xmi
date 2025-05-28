@@ -56,9 +56,9 @@
       title="Inicio"
       socialcontent="//@socialcontent.0">
     <link description="Ver Libros"
-        externalURL="Libro_Index.html"/>
+        externalURL="Cliente/Libro_Index.html"/>
     <link description="Ver Clientes"
-        externalURL="Cliente_Index.html"/>
+        externalURL="Cliente/Cliente_Index.html"/>
     <survey>
       <question
           xsi:type="dataWeb:ShortQuestion"
